@@ -21,7 +21,7 @@
             <div class="grid grid-cols-3 gap-4  text-white">
                 <div class="bg-blue-300 p-8 rounded">
                     <h3 class="text-2xl">Deposit </h3>
-                    <h4  class="text-4xl">
+                    <h4 class="text-4xl">
                         $<span id="deposit-total">00</span>
                     </h4>
                 </div>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="bg-yellow-300 p-8 rounded">
                     <h3 class="text-2xl">Balance </h3>
-                    <h4 class="text-4xl">$<span id="balance-total">1200</span> </h4>
+                    <h4 class="text-4xl">$<span id="balance-total">00</span> </h4>
                 </div>
             </div>
         </section>
@@ -46,18 +46,18 @@
                     <h3 class="text-2xl">Please Deposit</h3>
                     <input id="deposit-input" class="border border-gray-400 px-2 mb-4 rounded block w-3/4" type="text"
                         name="deposit-amount" placeholder="$ Deposit" autocomplete="off">
-                        <span class="hidden" id="deposit-error">please input your deposit in number</span>
-                        <button id="deposit-btn" class="bg-indigo-700 px-4 rounded py-2 text-white font-medium">
-                            Deposit
-                        </button>
-                    </div>
-                    
-                    <!-- withdraw -->
-                    <div class="bg-purple-100 p-8 rounded">
-                        <h3 class="text-2xl">Withdraw</h3>
-                        <input class="border border-gray-400 px-2 mb-4 rounded block w-3/4" type="text"
+                    <span class="hidden" id="deposit-error">please input your deposit in number</span>
+                    <button id="deposit-btn" class="bg-indigo-700 px-4 rounded py-2 text-white font-medium">
+                        Deposit
+                    </button>
+                </div>
+
+                <!-- withdraw -->
+                <div class="bg-purple-100 p-8 rounded">
+                    <h3 class="text-2xl">Withdraw</h3>
+                    <input class="border border-gray-400 px-2 mb-4 rounded block w-3/4" type="text"
                         name="withdraw-amount" id="withdraw-input" placeholder="$ Withdraw" autocomplete="off">
-                        <span class="hidden" id="withdraw-error">please input your withdraw in number</span>
+                    <span class="hidden" id="withdraw-error">please input your withdraw in number</span>
                     <button id="withdraw-btn" class="bg-indigo-700 px-4 rounded py-2 text-white font-medium">
                         Withdraw
                     </button>
@@ -74,4 +74,5 @@
     <!-- js -->
     <script src="js/functional.js"></script>
 </body>
+
 </html>

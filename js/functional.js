@@ -6,14 +6,18 @@ function getInputValue(inputId) {
     return inputFieldValue;
 
 }
+function getInnerTextValue(inputId) {
+    const fieldTag = document.getElementById(inputId);
+    const fieldValueInText = fieldTag.innerText;
+    const value = parseFloat(fieldValueInText);
+    return value;
+}
 
 // update Total in box
 function getUpdateAmount(inputId, amount) {
-    const totalTag = document.getElementById(inputId);
-    const previousAmountTxt = totalTag.innerText;
-    const previousAmount = parseFloat(previousAmountTxt);
+    const previousAmount = getInnerTextValue(inputId);
     const newTotal = previousAmount + amount;
-    totalTag.innerText = newTotal;
+    document.getElementById(inputId).innerText = newTotal;
     return newTotal;
     // console.log('newTotal: ' + newTotal);
 }
@@ -36,15 +40,14 @@ function getUpdateBalance(amount, isAdding) {
 function getErrorMsg(errorId, updateAmount) {
     const errorMsg = document.getElementById(errorId);
     errorMsg.style.color = 'red';
-    if(isNaN(updateAmount) != false ){
+    // let errorMsgBlock; 
+    if (isNaN(updateAmount) != false) {
         const errorMsgShow = errorMsg.style.display = 'block';
-        console.log(errorMsgShow + "xxxx");
+        // console.log(errorMsgShow + "xxxx");
     }
-    else if( isNaN(updateAmount) != true){
+    else if (isNaN(updateAmount) != true) {
         // not working
-        console.log(updateAmount);
-        const errorMsgBlock = errorMsg.style.display = 'none'; 
-        console.log( 'aaaa');
+        const errorMsgBlock = errorMsg.style.display = 'none';
     }
 }
 
@@ -55,12 +58,14 @@ document.getElementById('deposit-btn').addEventListener('click', function () {
         const updateBalanceTotal = getUpdateBalance(depositInputValue, true);
     } else {
         getErrorMsg('deposit-error', depositInputValue);
-        
+
     }
 });
 document.getElementById('withdraw-btn').addEventListener('click', function () {
     const withdrawInputValue = getInputValue('withdraw-input');
-    if (withdrawInputValue > 0) {
+    const balance = getInnerTextValue('balance-total');
+    // withdrawInputValue has to be greater than 0 && withdrawInputValue has to be less than equal to than total balance; withdraw can not be greater than balance
+    if (withdrawInputValue > 0 && withdrawInputValue <= balance) {
         const withdrawUpdateAmount = getUpdateAmount('withdraw-total', withdrawInputValue);
         const updateBalanceTotal = getUpdateBalance(withdrawInputValue, false);
     } else {
